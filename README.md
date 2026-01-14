@@ -1,7 +1,13 @@
 # Capstone-Project-24.1-Final-Report (README)
-This is the final Capstone project and includes the Jupyter notebook, the README summary, and final report (PDF)
-Capstone Project
-Red Wine Rating System Final Report
+This is the final Capstone project and includes the following items:
+Capstone Final Report (PDF) - contains more details and charts (follows the template provided)
+Capstone Final Jupyter notebook - contains all the code and comments plus a number of additional plots and charts 
+README exec (high-level) template provided 
+Extra work Jupyter notebook (supplemental) - some informal work to see how a neaural network would perform on the dataset 
+
+Capstone Project Overview
+
+Red Wine Rating System 
 1.	Define the Problem Statement: 
 The goal of this project is to use machine learning to be able to accurately predict the quality rating a red wine would receive from a human judge based on its physical and chemical characteristics.  Initially, I had also hoped to translate that into estimating how a wine would place in a wine competition, but quickly realized that was going to be too big of a problem to tackle for this assignment.  So, for this project I will just focus on building a model that will accurately predict the quality rating, which will serve as a guide to a wine drinker to know if the wine will be good to drink.
 
@@ -20,15 +26,8 @@ I found a dataset and discussed it with Savio, who agreed it was a good fit in t
 
 The UCI dataset contains red Vinho Verde wines from Northern Portugal.  Each of the wines is defined by 11 physical/chemical characteristics and then given a score between 0 and 10 by wine judges.  0 is terrible and 10 is outstanding wine.  In the actual dataset all of the wines judged fall  in the range of 3 to 8. 
 
-See excerpt below:
-
  
 In my research, there were very few datasets that could even come close to this in terms of the number of quantitative features of the wine and the resulting target value of a human rating (score).  The majority of datasets only quantify residual sugars and alcohol content.  Those simple features, while very influential, do not provide enough information to separate high quality from low quality wines. 
-
-As you can see from the correlation heat map there are a number of features that have a strong impact (positive and negative correlation) on the resulting quality rating.
-
- 
-The heatmap shows strong positive correlation to alcohol and residual sugars, and also other factors such as sulphates, citric acid, and fixed acidity.  Note, also there is noteworthy negative correlation to volatile acidity, total sulfur dioxide, density, and chlorides.  So, it is pretty clear a more extensive set of variables (features) would produce a better result.  
 
 4.	Data Preprocessing/Preparation: 
 Preparing the data was more straightforward than some of the datasets I have worked with throughout the course.  As noted in the accompanying Jupyter notebook, I ran through the steps to ensure there was no missing data or null values.  I also checked for duplicate data and initially it appeared that there were some (240 samples of 1599), however after researching it and finding that each of those samples represents an independent observation (wine sample being judged) it would be best to keep them, otherwise information would be lost.
@@ -43,33 +42,25 @@ Later, after running initial models, it became clear that I would need to do som
 
 I explained in more detail why I chose those ratings and it was directly from a well respected source that many wine drinkers rely upon for selecting a good wine.  This re-mapping of the data so that instead of there being 6 classes, there were now just three resulted in an improvement of the accuracy from mid-60% to mid-80% range— pretty substantial improvement.
 
-
-5.	Modeling: For this deliverable, please document your selection of machine learning algorithms that you selected for your problem statement from the first deliverable.
-First, as noted in the accompanying Jupyter notebook, I ran a number of classification models we learned in class before re-mapping the target variable (‘quality’).  In each case, I ran the base model and then used GridSearchCV to tune the main hyperparameters for the model.  
-
-Second, after doing feature engineering on the target variable (‘quality’) reducing it from 6 classes to 3 classes, I re-ran several of the most effective models from earlier to note the performance improvement.  
-
-
-
-
-
+5.	Modeling: Please see the Capstone Report (PDF) and the Capstone Jupyter notebook for more deatils on models chosen.  In summary multiple classification models and related ensemble methods:
+   Logistic Regression
+  	K-Near Neighbors
+  	Decision Tree
+  	SVC
+  	Random Forest (ensemble)
+  	Bagging (ensemble)
+  	Stacking (ensemble)
 
 
-6.	Model Evaluation: Share your model evaluation here. What types of models did you consider for your problem (classification, regression, unsupervised)?  Articulate the evaluation metrics you used and how you determined which model was most optimal for your problem.
+7.	Model Evaluation: Charts with the best results for each of the models and ensemble above are contained in the Capstone Final Report and can also be found in the Capstone Jupyter notebook.  There are two sets of results.  The fisrt set is the results before doing some further feature engineering to reduce the classes from 6 to 3 in the dataset.  The rationale for this is explained in the report and the Jupyter notebook comments, as well as above in section 4.
 
-
-Results of the first round of modeling achieved the following results (best accuracy score for the type of model):
-
-Round 1: Best score for each type of model (rounded to one decimal place)
+Best score for each type of model (rounded to one decimal place)
 Model
-Cross-validation Score	Test Score 
-Logistic Regression	61.6%	56.9%
-KNeighbors (KNN)	61.3%	62.2%
-SVC	63.6%	60.9%
-Decision Tree	59.7%	55.3%
-Random Forest (ensemble)	69.2%	66.3%
-Bagging on SVC (ensemble)	64.1%	60.3%
-Stacking (ensemble, multiple classifiers)	66.7%	67.8%
+               Cross-validation Score	    Test Score 
+Random Forest 	86.6%	                     86.9%
+SVC 	          85.1%	                     86.3%
+KNeighbors 	   84.1%	                     84.7%
+Stacking 	     85.9%	                     85.9%
 
 
 
@@ -81,15 +72,9 @@ Stacking (ensemble, multiple classifiers)	66.7%	67.8%
 
 
 
-Below are the results of round 2 of modeling, after reducing the number of ‘quality’ classes from 6 to 3.
 
-Round 2: Best score for each type of model (rounded to one decimal place)
-Model
-Cross-validation Score	Test Score 
-Random Forest 	86.6%	86.9%
-SVC 	85.1%	86.3%
-KNeighbors 	84.1%	84.7%
-Stacking 	85.9%	85.9%
+
+
 
 
 
