@@ -1,7 +1,7 @@
 ### Capstone 
 Author: Curtis Phare 
 
-#### Executive summary (please see the Capstone Final Report PDF as well)
+#### Executive summary (please see the Capstone Final Report PDF for more detail)
 The goal of this project is to use machine learning to be able to accurately predict the quality rating a red wine would receive from a human judge based on its physical and chemical characteristics using various machine learning models.
 
 #### Rationale
