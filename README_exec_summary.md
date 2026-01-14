@@ -30,8 +30,8 @@ As a next step I would like to further explore using a neural network with a sof
 #### Outline of project
 
 - https://github.com/curt-lab/Capstone-Project-24.1-Final-Report.git
-- [Link to notebook 2]()
-- [Link to notebook 3]()
+- capstone_final.ipynb
+
 
 
 ##### Contact and Further Information
